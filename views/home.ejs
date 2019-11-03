@@ -1,0 +1,133 @@
+<style type="text/css">
+
+   #app{
+    min-width: 550px;
+  max-width: 850px;
+  margin: 0 auto;
+   }
+    a {
+        color: #337ab7;
+        text-decoration: none;
+        font-size: 25px
+    }
+
+    .card {
+        margin: 10px solid lightgray;
+        border: 5px solid lightgray;
+        padding: 10px;
+
+    }
+
+    .cards {
+        float: left;
+        border: 7px solid lightgray;
+        margin: 0px;
+        width: 100%
+    }
+
+    #board1 {
+        float: left;
+        margin: 20px
+    }
+
+    #board2 {
+        float: left;
+        margin: 20px
+    }
+
+    .btn-success {
+        background-color: #449d44;
+        border-color: #449d44;
+        color: #fff;
+    }
+
+    .btn-danger {
+        border-color: #ac2925;
+        background-color: #c9302c;
+        color: #fff;
+    }
+    div.tab-content{
+  display:none
+}
+    .wrapper div:target{
+  display:block;
+}
+/* .wrapper>div:first-child{
+    display: block
+} */
+
+
+  
+  
+</style>
+
+<body>
+        <div id="app">
+                <div>
+                  <a href="#Home"> Home Page</a>
+                 
+                    <a href="#All"> Tasks</a>
+                    <a href="#Create">Tab 3</a>
+                </div>
+               
+    <div class="wrapper">
+       
+            <div id="Home" class="tab-content">
+                    <h1>Welcome</h1>
+                    <h>Have a nice day!</h>
+                    <p <%=title%></p> <p>
+                        <a href="http://10.148.68.58:3000/api/ps/Diagnostics@Agent.bat" download>Download Agent</a>
+                    </p>
+                    <div>
+                        <img src="/public/Images/DSC00155.JPG" height="400" width="850">
+                    </div>
+                    <!-- <button id="testdownload" onclick="sendrequest()" >Send Request</button> -->
+        
+                </div>
+    
+     
+            <div id="All" class="tab-content">
+                <div id="board1">
+                    <header>Task List</header>
+                    <div class="cards">
+                        <div><%
+                            tasks.forEach(function(task){%>
+                            <div class="card">
+                                <h4><%=task.name%></h4>
+                                <p>Note: <%=task.note%></p>
+                            </div>
+
+                            <%})%>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="board2">
+                    <header>Sheduled Tasks</header>
+                    <div class="cards" id="b2">
+                        <div class="card">
+                            <h4>New Media Detection</h4>
+                            <p>taskDeployStandardVHD</p>
+                            <button class="btn-danger" hidden>X</button>
+                            <button class="btn-success">►</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="Create" class="tab-content">
+                    <div>
+                        <label>Select playlist</label>
+                        <input/>
+                    </div>
+                    <button>Start</button>
+                </div>
+
+
+       
+    </div>
+  <script src="scripts/index.js" type="text/javascript"></script>
+</body>
+
+
